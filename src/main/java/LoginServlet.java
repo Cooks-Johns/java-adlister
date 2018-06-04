@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.rmi.activation.ActivationGroup_Stub;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")  // handles thes the ger request to /login and loads the page w/ the login form
 public class LoginServlet extends HttpServlet {
@@ -21,6 +20,8 @@ public class LoginServlet extends HttpServlet {
         if( username.equals("admin") && password.equals("password")) {
             response.sendRedirect("/profile");
         } else {
+            String message = " Username or Password is incorrect pleases try another";
+            request.setAttribute("message", message);
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
 
