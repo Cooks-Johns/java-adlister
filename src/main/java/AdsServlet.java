@@ -11,6 +11,7 @@ public class AdsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/index.jsp").forward(request, response);
 
+
         if (request.getMethod().equalsIgnoreCase("post")) {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
