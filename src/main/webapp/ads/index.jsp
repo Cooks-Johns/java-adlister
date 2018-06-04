@@ -10,12 +10,13 @@
 <html>
 <head>
     <title>ads</title>
-    <jsp:include page="/partial/head.jsp">
+    <jsp:include page="/partials/head.jsp">
         <jsp:param name="title" value="View all Ads"/>
     </jsp:include>
 </head>
 <body>
 
+    <jsp:include page="/partials/head.jsp"/>
 
 
 
