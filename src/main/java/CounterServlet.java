@@ -12,4 +12,6 @@ public class CounterServlet extends HttpServlet {
         counter += 1;
         response.getWriter().println("<h1>The count is " + counter + ".</h1>");
     }
+
+
 }
