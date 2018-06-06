@@ -6,7 +6,7 @@ public class DaoFactory {
 
     public static Ads getAdsDao() throws SQLException {
         if (adsDao == null) {
-            adsDao = new MySQLAdsDao(new Config(
+            adsDao = (Ads) new MySQLAdsDao(new Config(
                     "jdbc:mysql://localhost:3306/adlister_db?serverTimezone=UTC&useSSL=false",
                     "root",
                     "codeup"));

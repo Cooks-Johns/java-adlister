@@ -1,15 +1,26 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Welcome to my site!" />
-    </jsp:include>
+<%@ include file="/WEB-INF/partials/navbar.jsp"%>
+    <style>
+        body {
+            background-color: tan;
+        }
+        h1  {
+            position: center;
+        }
+    </style>
+    
+    
 </head>
 <body>
     <jsp:include page="WEB-INF/partials/head.jsp"/>
     <div class="container">
         <h1>Welcome to the Adlister!</h1>
+        <input type="submit" class="btn lg">
     </div>
+
+
 </body>
 </html>
