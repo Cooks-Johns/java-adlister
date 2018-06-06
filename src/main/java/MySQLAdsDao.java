@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import com.mysql.jdbc.Driver;
 
-public class MySQLAdsDao extends Ad {
-    private Connection connection;
+public class MySQLAdsDao implements Ads {
+    private Connection connection = null;
 
 
 
-    public MySQLAdsDao(Config config) throws SQLException {
+    public MySQLAdsDao(Config config){
 
-            DriverManager.registerDriver(new Driver());
         try {
+            DriverManager.registerDriver(new Driver());
+
             connection = DriverManager.getConnection(
                     config.getUrl(),
                     config.getUser(),

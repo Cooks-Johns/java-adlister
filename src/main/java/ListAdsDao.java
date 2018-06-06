@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ListAdsDao implements Ads {
+
     private List<Ad> ads;
 
     public List<Ad> all() {
