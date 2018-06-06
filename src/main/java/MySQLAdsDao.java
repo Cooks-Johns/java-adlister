@@ -6,10 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import com.mysql.jdbc.Driver;
 
-public class MySQLAdsDao implements Ads {
+public class MySQLAdsDao extends Ad {
     private Connection connection = null;
 
     public MySQLAdsDao(Config config) {
+        super();
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
