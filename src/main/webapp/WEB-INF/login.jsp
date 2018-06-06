@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%@ include file="/WEB-INF/partials/navbar.jsp"%>
+
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Please Log In" />
     </jsp:include>
@@ -20,6 +22,6 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
-    </div>
+    </div>e
 </body>
 </html>
