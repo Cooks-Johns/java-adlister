@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Ads {
 
-    List<Ads> all() throws SQLException;
+    List<Ad> all() throws SQLException;
 
     Long insert(Ads ads) throws SQLException;
 
