@@ -1,3 +1,4 @@
+
 public class Ad {
     private long id;
     private long userId;
@@ -11,7 +12,10 @@ public class Ad {
         this.description = description;
     }
 
-    public Ad() {
+    public Ad(long userId, String title, String description) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
 
     }
 
