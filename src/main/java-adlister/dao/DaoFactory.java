@@ -12,4 +12,6 @@ public class DaoFactory {
         }
         return adsDao;
     }
+
+    public static Users get
 }
