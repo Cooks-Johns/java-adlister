@@ -1,18 +1,22 @@
+
+import java.sql.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.mysql.jdbc.Driver;
 
 public class MySQLAdsDao extends Ad {
-    private Connection connection = null;
+    private Connection connection;
 
-    public MySQLAdsDao(Config config) {
-        super();
-        try {
+
+
+    public MySQLAdsDao(Config config) throws SQLException {
+
             DriverManager.registerDriver(new Driver());
+        try {
             connection = DriverManager.getConnection(
                     config.getUrl(),
                     config.getUser(),
