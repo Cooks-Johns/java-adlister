@@ -5,29 +5,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.*;
 
-@WebServlet(name = "CreateAdsServlet", urlPatterns = "/ads/create")
-public class CreateAdsServlet extends HttpServlet {
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
-
+@WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
+public class CreateAdServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if (request.getSession().getAttribute("user") == null) {
+            response.sendRedirect("/login");
+            return;
+        }
+        request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
+                .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        User user = (User) request.getSession().getAttribute("user");
         Ad ad = new Ad(
+                user.getId(),
                 request.getParameter("title"),
                 request.getParameter("description")
         );
-        try {
-            DaoFactory.getAdsDao().insert(ad);
-            response.sendRedirect("/ads");
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+        DaoFactory.getAdsDao().insert(ad);
+        response.sendRedirect("/ads");
 
     }
-
-
 }
