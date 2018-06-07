@@ -51,4 +51,14 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    @Override
+    public List<Ad> all() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Long insert(Ad ad) throws SQLException {
+        return null;
+    }
 }
