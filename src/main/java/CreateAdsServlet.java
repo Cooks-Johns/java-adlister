@@ -15,7 +15,7 @@ public class CreateAdsServlet extends HttpServlet {
 
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Ad ad = new Ad(
                 request.getParameter("title"),
                 request.getParameter("description")
@@ -24,7 +24,7 @@ public class CreateAdsServlet extends HttpServlet {
             DaoFactory.getAdsDao().insert(ad);
             response.sendRedirect("/ads");
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
     }
