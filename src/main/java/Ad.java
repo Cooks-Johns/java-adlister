@@ -19,7 +19,7 @@ public class Ad {
 
     }
 
-    public Ad() {
+    public Ad(String title, String description) {
     }
 
     public long getId() {
