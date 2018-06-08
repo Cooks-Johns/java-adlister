@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLUsersDao implements Users, MySQLUserDao {
+public class MySQLUsersDao implements Users {
     private Connection connection = null;
 
     public MySQLUsersDao(Config config) {
