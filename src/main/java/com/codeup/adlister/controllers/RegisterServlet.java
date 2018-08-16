@@ -13,36 +13,29 @@ import java.io.IOException;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO: render the registration form to the user
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        // TODO: ensure the submitted information is valid
-
-        // TODO: create a new user based off of the submitted information
-        // TODO: if a user was successfully created, send them to their profile
-        Boolean error = false;
-
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
 
+        // validate input
         boolean inputHasErrors = username.isEmpty()
                 || email.isEmpty()
                 || password.isEmpty()
-                || (! password.equals)passwordConfirmation));
+                || (! password.equals(passwordConfirmation));
+
         if (inputHasErrors) {
             response.sendRedirect("/register");
             return;
         }
 
-        User user = User(username, email, password);
-        DaoFactory.getUserDao().insert(user);
+        // create and save a new user
+        User user = new User(username, email, password);
+        DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");
-
-        }
-
     }
+}
